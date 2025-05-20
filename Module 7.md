@@ -16,7 +16,32 @@ Else
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+struct details
+{
+    int age;
+    char name[20];
+};
+void checkeligibility(struct details detl)
+{
+    printf("Age:%d\n",detl.age);
+    printf("Name:%svaccine:%d\n",detl.name,detl.age);
+    if (detl.age>18){
+        printf("eligibility:yes");
+    }
+    else{
+        printf("eligibility:no");
+    }
+}
+int main()
+{
+    struct details detl;
+    scanf("%d",&detl.age);
+    scanf("%s",detl.name);
+    checkeligibility(detl);
+}
+```
 
 
 Output:
