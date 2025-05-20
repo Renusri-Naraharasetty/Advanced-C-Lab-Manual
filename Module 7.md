@@ -46,7 +46,8 @@ int main()
 
 Output:
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/3fc2f774-2307-41f6-959b-50e68a27c098)
+
 
 
 Result:
@@ -68,16 +69,33 @@ Algorithm:
 7.	Return 0
  
 Program:
-
-//type your code here
-
-
-
+```
+#include <stdio.h>
+struct operate{
+    int c1,i1,c2,i2;
+    int ac,ai;
+    int sc,si;
+    int mc,mi;
+};
+int main(){
+    struct operate s;
+    scanf("%d%d%d%d",&s.c1,&s.i1,&s.c2,&s.i2);
+    s.ac=s.c1+s.c2;
+    s.ai=s.i1+s.i2;
+    printf("The no. is= %d+%di\n",s.ac,s.ai);
+    s.sc=s.c1-s.c2;
+    s.si=s.i1-s.i2;
+    printf("The no. is= %d+%di\n",s.sc,s.si);
+    s.mc=(s.c1*s.c2)-(s.i1*s.i2);
+    s.mi=(s.i1*s.c2)+(s.i2*s.c1);
+    printf("The no. is= %d+%di",s.mc,s.mi);
+}
+```
 
 Output:
 
+![image](https://github.com/user-attachments/assets/cba8ae2d-ebf6-4c52-96c0-8e061b144cc2)
 
-//paste your output here
 
 
 
@@ -110,24 +128,28 @@ Use scanf to input the file name into the name array.
 5.	Return 0 to indicate successful program execution.
  
 Program:
-
-//type your code here
-
-
+```
+#include <stdio.h>
+int main()
+{
+    FILE *fp;
+    fp=fopen("Saveetha.txt","w");
+    if(fp==NULL){
+        printf("Error occured in opening the file!");
+    }
+    else{
+        printf("File Created Successfully");
+        printf("\nFile Opened");
+    }
+    fclose(fp);
+    printf("\nFile Closed");
+}
+```
 
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/1c9f8530-3965-4731-931c-264bf48f5eb4)
 
 
 
@@ -157,19 +179,36 @@ Use scanf to input the file name into the name array and the number of strings i
 5.	Return 0 to indicate successful program execution.
  
 Program:
-
-//type your code here
-
-
-
+```
+#include <stdio.h>
+struct student
+{
+    int rollno;
+    char name[50];
+    float per;
+};
+int main()
+{
+    FILE *fp;
+    char name[50];
+    scanf("%s",name);
+    fp=fopen(name,"w");
+    printf("%s Opened\n",name);
+    int n;
+    scanf("%d",&n);
+    struct student s[n];
+    for(int i=0;i<n;i++){
+        scanf("%d %s %f",&s[i].rollno,s[i].name,&s[i].per);
+        fprintf(fp,"%d %s %.2f\n",s[i].rollno,s[i].name,s[i].per);
+    }
+    printf("Data added Successfully");
+    fclose(fp);
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
+![image](https://github.com/user-attachments/assets/acc77fed-1712-4cc4-9994-ac5e426b48cd)
 
 
 
@@ -211,16 +250,57 @@ Algorithm:
 13.End the program by returning 0.
 
 Program:
-
-//type your code here
+```
+#include <stdio.h>
+#include<stdlib.h>
+struct student
+{
+    int sno;
+    char name[20];
+    char dept[20];
+};
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    struct student s[n];
+    char fname[]="student.txt";
+    FILE *fp;
+    fp=fopen(fname,"w");
+    if(fp==NULL)
+    {
+        printf("Error in opening file!");
+    }
+    
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d %s %s",&s[i].sno,s[i].name,s[i].dept);
+        fprintf(fp,"%d %s %s\n",s[i].sno,s[i].name,s[i].dept);
+    }
+    fclose(fp);
+    fp=fopen(fname,"r");
+    if(fp==NULL)
+    {
+    printf("Error in reading the file!");
+    }
+    while(fscanf(fp,"%d %s %s",&s[0].sno,s[0].name,s[0].dept)!= EOF)
+    {
+        printf("%d %s %s\n",s[0].sno,s[0].name,s[0].dept);
+    }
+    
+    fclose(fp);
+    printf("Data Read Successfully");
+    
+    return 0;
+}
+```
 
 
 
 
 Output:
 
-
-//paste your output here
+![image](https://github.com/user-attachments/assets/59cb351e-87e2-4e3c-ab87-7a71f158335a)
 
 
 
